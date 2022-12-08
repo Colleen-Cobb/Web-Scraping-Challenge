@@ -27,8 +27,9 @@ def scrape():
     mars_dcit=mongo.db.mars_dict
 
     # Run the scrape function and save the results to a variable
-    mars_data=scrape_mars.scrape()
-    print(scraped_data)
+    mars_dict=mongo.db.mars_dict
+    mars_data=scrape_mars.scrape_info()
+    print(mars_data)
 
     # Update the Mongo database using update and upsert=True
     mars_dict.update_one({}, {"$set": mars_data}, upsert=True)
